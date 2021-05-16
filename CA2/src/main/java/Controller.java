@@ -38,6 +38,18 @@ public class Controller {
 		}
 		return null;
 	}
+
+	public void displayRubric() { //Method that displays the rubric name if name entered matches the rubrics saved
+		System.out.print("Enter Rubric Name: ");
+		Rubric rubric = getRubricByName(inputReader.nextLine());
+
+		if (rubric == null) {
+			System.out.println("no Such rubric found");
+			return;
+		}
+
+		System.out.println("\t" + rubric);
+	}
     
     public void addCriterion() { //Add a critation to any rubric created. Rubric name must be verified first
 		System.out.print("Enter Rubric Name: ");
@@ -51,7 +63,77 @@ public class Controller {
 		System.out.println("Enter Criterion Name");
 		rubric.getCriterion().add(inputReader.nextLine());
 	}
+
+	public void displayCriteria() { 
+		System.out.print("Enter Rubric Name: ");
+		Rubric rubric = getRubricByName(inputReader.nextLine());
+
+		if (rubric == null) {
+			System.out.println("no Such rubric found");
+			return;
+		}
+
+		System.out.print("Enter Criterion Name: ");
+		String criterion = inputReader.nextLine();
+
+		if (!rubric.getCriterion().contains(criterion)) {
+			System.err.println("No such criterion in " + rubric.getName() + " rubric");
+			return;
+		}
+
+		int index = rubric.getCriterion().indexOf(criterion);
+	}
+
+	public void addStudent() { //Method to add student to arraylist
+		System.out.print("Enter Student Name: ");
+		Student student = new Student(inputReader.nextLine());
+		students.add(student);
+	}
+
+	public Student getStudentByName(String studentName) {
+		for (Student student : students) {
+			if (student.getName().equals(studentName)) {
+				return student;
+			}
+		}
+		return null;
+	}
     
+	public void addGrade() { //Method to add Grade to arraylist. 
+		System.out.print("Enter Student Name: ");
+		Student student = getStudentByName(inputReader.nextLine()); //Student name must be verified before grade is added.
+		if (student == null) {
+			System.err.println("No Such student found");
+			return;
+		}
+
+		System.out.print("Enter Rubric Name: "); //Rubric name must be verified before its criteria is asked.
+		Rubric rubric = getRubricByName(inputReader.nextLine());
+
+		if (rubric == null) {
+			System.out.println("no Such rubric found");
+			return;
+		}
+
+		if(rubric.getCriterion().isEmpty()) {
+			System.out.println("Add Criteriion First"); //If Rubric critation is not found, display message
+			return;
+		}
+		Grade grade = new Grade(rubric); // Display grade (1-5)
+		for (int i = 0; i < rubric.getCriterion().size(); i++) {
+			System.out.print("Enter Grade for " + rubric.getCriterion().get(i) + " (1-5): ");
+			int gradeValue = inputReader.nextInt();
+			inputReader.nextLine();
+			grade.getGrades().add(gradeValue);
+		}
+
+		student.getGrades().add(grade);
+	}
+
+	
+
+
+
     public static void main(String[] args) {
 
 		int option = -1;
