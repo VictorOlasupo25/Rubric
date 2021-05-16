@@ -107,7 +107,7 @@ public class Controller {
 			return;
 		}
 
-		System.out.print("Enter Rubric Name: "); //Rubric name must be verified before grade is added.
+		System.out.print("Enter Rubric Name: "); //Rubric name must be verified before its criteria is asked.
 		Rubric rubric = getRubricByName(inputReader.nextLine());
 
 		if (rubric == null) {
@@ -119,7 +119,7 @@ public class Controller {
 			System.out.println("Add Criteriion First"); //If Rubric critation is not found, display message
 			return;
 		}
-		Grade grade = new Grade(rubric);
+		Grade grade = new Grade(rubric); // Display grade (1-5)
 		for (int i = 0; i < rubric.getCriterion().size(); i++) {
 			System.out.print("Enter Grade for " + rubric.getCriterion().get(i) + " (1-5): ");
 			int gradeValue = inputReader.nextInt();
