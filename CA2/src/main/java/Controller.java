@@ -38,6 +38,18 @@ public class Controller {
 		}
 		return null;
 	}
+
+	public void displayRubric() { //Method that displays the rubric name if name entered matches the rubrics saved
+		System.out.print("Enter Rubric Name: ");
+		Rubric rubric = getRubricByName(inputReader.nextLine());
+
+		if (rubric == null) {
+			System.out.println("no Such rubric found");
+			return;
+		}
+
+		System.out.println("\t" + rubric);
+	}
     
     public void addCriterion() { //Add a critation to any rubric created. Rubric name must be verified first
 		System.out.print("Enter Rubric Name: ");
@@ -50,6 +62,14 @@ public class Controller {
 
 		System.out.println("Enter Criterion Name");
 		rubric.getCriterion().add(inputReader.nextLine());
+	}
+
+
+
+	public void addStudent() { //Method to add student to arraylist
+		System.out.print("Enter Student Name: ");
+		Student student = new Student(inputReader.nextLine());
+		students.add(student);
 	}
     
     public static void main(String[] args) {
