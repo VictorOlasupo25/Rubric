@@ -32,7 +32,7 @@ public class Rubric {
 	}
 	
 	@Override
-	public String toString() {
+	public String toString() { //Display Criteria name
 		String toString = String.format("%25s", " ");
 		for(String criteria : criterion) {
 			toString += String.format("%25s", criteria);

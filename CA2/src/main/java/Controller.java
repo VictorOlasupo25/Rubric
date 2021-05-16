@@ -10,7 +10,7 @@ public class Controller {
 		inputReader = new Scanner(System.in);
     }
     
-    public int getMenuChoice() {
+    public int getMenuChoice() {  // Menu options
 		System.out.println("1. Create Rubric");
 		System.out.println("2. Add Criterion");
 		System.out.println("3. Add Student");
@@ -30,7 +30,7 @@ public class Controller {
 		rubrics.add(rubric);
 	}
     
-    public Rubric getRubricByName(String rubricName) {
+    public Rubric getRubricByName(String rubricName) {  //Get rubric if  name entered matches rubric name saved in array
 		for (Rubric rubric : rubrics) {
 			if (rubric.getName().equals(rubricName)) {
 				return rubric;
@@ -39,7 +39,7 @@ public class Controller {
 		return null;
 	}
     
-    public void addCriterion() {
+    public void addCriterion() { //Add a critation to any rubric created. Rubric name must be verified first
 		System.out.print("Enter Rubric Name: ");
 		Rubric rubric = getRubricByName(inputReader.nextLine());
 
