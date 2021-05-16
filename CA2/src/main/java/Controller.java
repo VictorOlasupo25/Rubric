@@ -99,7 +99,7 @@ public class Controller {
 		return null;
 	}
     
-	public void addGrade() {
+	public void addGrade() { //Method to add Grade to arraylist. Rubric and rubric name must be verified first.
 		System.out.print("Enter Student Name: ");
 		Student student = getStudentByName(inputReader.nextLine());
 		if (student == null) {
