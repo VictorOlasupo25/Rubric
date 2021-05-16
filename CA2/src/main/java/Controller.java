@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+import java.util.Scanner;
 public class Controller {
     ArrayList<Rubric> rubrics;//ArrayList to store new rubrics
-	ArrayList<Student> students;//ArrayList to store new students
+	//ArrayList<Student> students;//ArrayList to store new students
 	Scanner inputReader;
     public Controller() {
         rubrics = new ArrayList<>(); 
-		students = new ArrayList<>(); 
+		//students = new ArrayList<>(); 
 		inputReader = new Scanner(System.in);
     }
 
