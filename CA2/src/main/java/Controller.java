@@ -114,6 +114,13 @@ public class Controller {
 			System.out.println("no Such rubric found");
 			return;
 		}
+
+		if(rubric.getCriterion().isEmpty()) {
+			System.out.println("Add Criteriion First"); //If Rubric critation is not found, display message
+			return;
+		}
+
+
 	}
 
 
