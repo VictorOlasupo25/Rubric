@@ -99,40 +99,14 @@ public class Controller {
 		return null;
 	}
     
-	public void addGrade() {  //Method to add Grade to arraylist by enterng the relevent Rubric, Critation and student's name 
+	public void addGrade() {
 		System.out.print("Enter Student Name: ");
 		Student student = getStudentByName(inputReader.nextLine());
 		if (student == null) {
 			System.err.println("No Such student found");
 			return;
 		}
-
-		System.out.print("Enter Rubric Name: ");
-		Rubric rubric = getRubricByName(inputReader.nextLine());
-
-		if (rubric == null) {
-			System.out.println("no Such rubric found");
-			return;
-		}
-		
-		if(rubric.getCriterion().isEmpty()) {
-			System.out.println("Add Criteriion First");
-			return;
-		}
-
-		Grade grade = new Grade(rubric);
-		for (int i = 0; i < rubric.getCriterion().size(); i++) {
-			System.out.print("Enter Grade for " + rubric.getCriterion().get(i) + " (1-5): ");
-			int gradeValue = inputReader.nextInt();
-			inputReader.nextLine();
-			grade.getGrades().add(gradeValue);
-		}
-		student.getGrades().add(grade);
 	}
-
-
-
-
 
 
 
