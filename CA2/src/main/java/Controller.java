@@ -99,11 +99,19 @@ public class Controller {
 		return null;
 	}
     
-	public void addGrade() { //Method to add Grade to arraylist. Rubric and rubric name must be verified first.
+	public void addGrade() { //Method to add Grade to arraylist. 
 		System.out.print("Enter Student Name: ");
-		Student student = getStudentByName(inputReader.nextLine());
+		Student student = getStudentByName(inputReader.nextLine()); //Student name must be verified before grade is added.
 		if (student == null) {
 			System.err.println("No Such student found");
+			return;
+		}
+
+		System.out.print("Enter Rubric Name: "); //Rubric name must be verified before grade is added.
+		Rubric rubric = getRubricByName(inputReader.nextLine());
+
+		if (rubric == null) {
+			System.out.println("no Such rubric found");
 			return;
 		}
 	}
