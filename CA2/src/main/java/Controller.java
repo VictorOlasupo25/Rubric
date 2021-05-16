@@ -64,14 +64,78 @@ public class Controller {
 		rubric.getCriterion().add(inputReader.nextLine());
 	}
 
+	public void displayCriteria() { 
+		System.out.print("Enter Rubric Name: ");
+		Rubric rubric = getRubricByName(inputReader.nextLine());
 
+		if (rubric == null) {
+			System.out.println("no Such rubric found");
+			return;
+		}
+
+		System.out.print("Enter Criterion Name: ");
+		String criterion = inputReader.nextLine();
+
+		if (!rubric.getCriterion().contains(criterion)) {
+			System.err.println("No such criterion in " + rubric.getName() + " rubric");
+			return;
+		}
+
+		int index = rubric.getCriterion().indexOf(criterion);
+	}
 
 	public void addStudent() { //Method to add student to arraylist
 		System.out.print("Enter Student Name: ");
 		Student student = new Student(inputReader.nextLine());
 		students.add(student);
 	}
+
+	public Student getStudentByName(String studentName) {
+		for (Student student : students) {
+			if (student.getName().equals(studentName)) {
+				return student;
+			}
+		}
+		return null;
+	}
     
+	public void addGrade() {  //Method to add Grade to arraylist by enterng the relevent Rubric, Critation and student's name 
+		System.out.print("Enter Student Name: ");
+		Student student = getStudentByName(inputReader.nextLine());
+		if (student == null) {
+			System.err.println("No Such student found");
+			return;
+		}
+
+		System.out.print("Enter Rubric Name: ");
+		Rubric rubric = getRubricByName(inputReader.nextLine());
+
+		if (rubric == null) {
+			System.out.println("no Such rubric found");
+			return;
+		}
+		
+		if(rubric.getCriterion().isEmpty()) {
+			System.out.println("Add Criteriion First");
+			return;
+		}
+
+		Grade grade = new Grade(rubric);
+		for (int i = 0; i < rubric.getCriterion().size(); i++) {
+			System.out.print("Enter Grade for " + rubric.getCriterion().get(i) + " (1-5): ");
+			int gradeValue = inputReader.nextInt();
+			inputReader.nextLine();
+			grade.getGrades().add(gradeValue);
+		}
+		student.getGrades().add(grade);
+	}
+
+
+
+
+
+
+
     public static void main(String[] args) {
 
 		int option = -1;
