@@ -119,9 +119,18 @@ public class Controller {
 			System.out.println("Add Criteriion First"); //If Rubric critation is not found, display message
 			return;
 		}
+		Grade grade = new Grade(rubric);
+		for (int i = 0; i < rubric.getCriterion().size(); i++) {
+			System.out.print("Enter Grade for " + rubric.getCriterion().get(i) + " (1-5): ");
+			int gradeValue = inputReader.nextInt();
+			inputReader.nextLine();
+			grade.getGrades().add(gradeValue);
+		}
 
-
+		student.getGrades().add(grade);
 	}
+
+	
 
 
 
