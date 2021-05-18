@@ -6,7 +6,7 @@
 
 ## Scrum sprint backlog and task estimation
 
-![](Scrum.png)
+![](scrum.png)
 
 **Total Estimated Hrs: 70**
 
@@ -20,7 +20,7 @@ How the estimates were chosen?
 
 Fibonacci was used to set the numeric values for the estimations, following the approach that something that is 2 SP will be twice harder than something that is 1 SP. Each Fibanacci value has a number of Hours associated to denote how much time the team will have to complete a PBI. PBI #1 and #5 have 5 SP because they are about creating and inserting new records into the data which is usually harder than just simply quoting the data.
 
-![](Scrum2.png)
+![](scrum2.png)
 
 **Comparing the difficulty of 2 tasks with different estimates**
 
