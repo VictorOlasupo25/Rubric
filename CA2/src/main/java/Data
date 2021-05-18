@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+
+public class Data {
+
+	private ArrayList<Integer> values;
+
+	public Data(ArrayList<Integer> values) {
+		this.values = values;
+	}
+
+	public int getCount() {
+		return values.size();
+	}
+}
