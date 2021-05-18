@@ -181,7 +181,13 @@ public class Controller {
 			return;
 		}
 
-		
+		System.out.print("Enter Criterion Name: ");
+		String criterion = inputReader.nextLine();
+
+		if (!rubric.getCriterion().contains(criterion)) {
+			System.err.println("No such criterion in " + rubric.getName() + " rubric");
+			return;
+		}
 	}
 
 
