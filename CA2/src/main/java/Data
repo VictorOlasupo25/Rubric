@@ -44,4 +44,21 @@ public class Data {
 		return max;
 	}
 
+    public double getStandardDeviation() {
+
+		double mean = getMean();
+		double temp = 0;
+		for (int i = 0; i < values.size(); i++) {
+				temp += Math.pow(values.get(i) - mean, 2);
+		}
+
+		return Math.sqrt(temp / getCount());
+	}
+
+	private double getMean() {
+		return getAverage();
+	}
+
+}
+
 }
