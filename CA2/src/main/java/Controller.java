@@ -188,7 +188,20 @@ public class Controller {
 			System.err.println("No such criterion in " + rubric.getName() + " rubric");
 			return;
 		}
+		int index = rubric.getCriterion().indexOf(criterion);
 
+		ArrayList<Integer> data = new ArrayList<>();
+		for (Student student : students) {
+			Grade grade = student.getGradeByRubric(rubric);
+			if (grade != null) {
+				data.add(grade.getGrades().get(index));
+			}
+		}
+
+		System.out.println();
+		System.out.println("Statistics for " + rubric.getName() + " Criterion(" + criterion + ")");
+		Data statistics = new Data(data);
+		displayStatistics(statistics);
 		
 	}
 
