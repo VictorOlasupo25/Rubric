@@ -137,9 +137,9 @@ public class Controller {
     public static void main(String[] args) { // Menuchoice. run method when option is clicked
 
 		int option = -1;
-		Controller controller = new Controller();
+		Controller controller = new Controller(); 
 		do {
-			option = controller.getMenuChoice();
+			option = controller.getMenuChoice(); //Menu Choice class
 
 			switch (option) {
 			case 1:
@@ -167,8 +167,6 @@ public class Controller {
 				break;
 			}
 		} while (option != 8);
-
-		controller.inputReader.close();
-	}
+}
 }
 
