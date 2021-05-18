@@ -10,7 +10,9 @@ public class Controller {
 		inputReader = new Scanner(System.in);
     }
     
-    public int getMenuChoice() {  // Menu options
+    
+	
+	public int getMenuChoice() {  // Menu options
 		System.out.println("1. Create Rubric");
 		System.out.println("2. Add Criterion");
 		System.out.println("3. Add Student");
@@ -24,13 +26,17 @@ public class Controller {
 		return option;
 	}
 
-    public void createRubric() {  // Method that will create a rubric when name of rubric is entered 
+    
+	
+	public void createRubric() {  // Method that will create a rubric when name of rubric is entered 
 		System.out.print("Enter Rubric Name: ");
 		Rubric rubric = new Rubric(inputReader.nextLine());
 		rubrics.add(rubric);
 	}
     
-    public Rubric getRubricByName(String rubricName) {  //Get rubric if  name entered matches rubric name saved in array
+    
+	
+	public Rubric getRubricByName(String rubricName) {  //Get rubric if  name entered matches rubric name saved in array
 		for (Rubric rubric : rubrics) {
 			if (rubric.getName().equals(rubricName)) {
 				return rubric;
@@ -39,6 +45,8 @@ public class Controller {
 		return null;
 	}
 
+	
+	
 	public void displayRubric() { //Method that displays the rubric name if name entered matches the rubrics saved
 		System.out.print("Enter Rubric Name: ");
 		Rubric rubric = getRubricByName(inputReader.nextLine());
@@ -51,7 +59,9 @@ public class Controller {
 		System.out.println("\t" + rubric);
 	}
     
-    public void addCriterion() { //Add a critation to any rubric created. Rubric name must be verified first
+    
+	
+	public void addCriterion() { //Add a critation to any rubric created. Rubric name must be verified first
 		System.out.print("Enter Rubric Name: ");
 		Rubric rubric = getRubricByName(inputReader.nextLine());
 
@@ -64,6 +74,8 @@ public class Controller {
 		rubric.getCriterion().add(inputReader.nextLine());
 	}
 
+	
+	
 	public void displayCriteria() { 
 		System.out.print("Enter Rubric Name: ");
 		Rubric rubric = getRubricByName(inputReader.nextLine());
@@ -84,12 +96,14 @@ public class Controller {
 		int index = rubric.getCriterion().indexOf(criterion);
 	}
 
+	
 	public void addStudent() { //Method to add student to arraylist
 		System.out.print("Enter Student Name: ");
 		Student student = new Student(inputReader.nextLine());
 		students.add(student);
 	}
 
+	
 	public Student getStudentByName(String studentName) {
 		for (Student student : students) {
 			if (student.getName().equals(studentName)) {
@@ -99,6 +113,8 @@ public class Controller {
 		return null;
 	}
     
+	
+	
 	public void addGrade() { //Method to add Grade to arraylist. 
 		System.out.print("Enter Student Name: ");
 		Student student = getStudentByName(inputReader.nextLine()); //Student name must be verified before grade is added.
@@ -131,7 +147,18 @@ public class Controller {
 	}
 
 	
+	public void displayRubricStats() {
+		System.out.print("Enter Rubric Name: ");
+		Rubric rubric = getRubricByName(inputReader.nextLine());
 
+		if (rubric == null) {
+			System.out.println("no Such rubric found");
+			return;
+		}
+
+		
+
+	}
 
 
     public static void main(String[] args) { // Menuchoice. run method when option is clicked
