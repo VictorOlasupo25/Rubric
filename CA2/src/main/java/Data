@@ -11,4 +11,13 @@ public class Data {
 	public int getCount() { //Get count  of prewritten values
 		return values.size();
 	}
+
+    public int getSum() {
+		int sum = 0;
+		for (Integer value : values) {
+			sum += value;
+		}
+		return sum;
+	}
+
 }
