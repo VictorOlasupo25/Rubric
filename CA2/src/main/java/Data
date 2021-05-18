@@ -8,7 +8,7 @@ public class Data {
 		this.values = values;
 	}
 
-	public int getCount() {
+	public int getCount() { //Get count  of prewritten values
 		return values.size();
 	}
 }

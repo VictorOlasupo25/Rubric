@@ -134,7 +134,7 @@ public class Controller {
 
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { // Menuchoice. run method when option is clicked
 
 		int option = -1;
 		Controller controller = new Controller();
