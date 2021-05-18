@@ -156,7 +156,19 @@ public class Controller {
 			return;
 		}
 
+		ArrayList<Integer> data = new ArrayList<>();
 		
+		for (Student student : students) {
+			Grade grade = student.getGradeByRubric(rubric);
+			if (grade != null) {
+				data.addAll(grade.getGrades());
+			}
+		}
+
+		System.out.println();
+		System.out.println("Statistics for " + rubric.getName());
+		Data statistics = new Data(data);
+		//displayStatistics(statistics);
 
 	}
 
