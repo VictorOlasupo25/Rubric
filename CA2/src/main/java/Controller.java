@@ -172,6 +172,18 @@ public class Controller {
 
 	}
 
+	public void displayCriteriaStats() {
+		System.out.print("Enter Rubric Name: ");
+		Rubric rubric = getRubricByName(inputReader.nextLine());
+
+		if (rubric == null) {
+			System.out.println("no Such rubric found");
+			return;
+		}
+
+		
+	}
+
 
     public static void main(String[] args) { // Menuchoice. run method when option is clicked
 
