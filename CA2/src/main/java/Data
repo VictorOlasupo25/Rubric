@@ -20,4 +20,8 @@ public class Data {
 		return sum;
 	}
 
+    public double getAverage() {
+		return getSum() / getCount();
+	}
+
 }
