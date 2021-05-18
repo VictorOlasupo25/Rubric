@@ -168,7 +168,7 @@ public class Controller {
 		System.out.println();
 		System.out.println("Statistics for " + rubric.getName());
 		Data statistics = new Data(data);
-		//displayStatistics(statistics);
+		displayStatistics(statistics);
 
 	}
 
@@ -188,8 +188,16 @@ public class Controller {
 			System.err.println("No such criterion in " + rubric.getName() + " rubric");
 			return;
 		}
+
+		
 	}
 
+	private void displayStatistics(Data statistics) {
+		System.out.println("Average : " + String.format("%.02f", statistics.getAverage()));
+		System.out.println("Standard Deviation : " + String.format("%.02f", statistics.getStandardDeviation()));
+		System.out.println("Minimum : " + statistics.getMin());
+		System.out.println("Maximum : " + statistics.getMax());
+	}
 
     public static void main(String[] args) { // Menuchoice. run method when option is clicked
 
@@ -215,10 +223,10 @@ public class Controller {
 				controller.displayRubric();
 				break;
 			case 6:
-				//controller.displayRubricStats();;
+				controller.displayRubricStats();;
 				break;
 			case 7:
-				//controller.displayCriteriaStats();
+				controller.displayCriteriaStats();
 				break;
 			case 8:
 				break;
